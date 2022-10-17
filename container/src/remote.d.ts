@@ -1,6 +1,7 @@
 declare module "list/List" {
-	const List: React.ComponentType;
-
-	export default List;
+  export function mount(el: any): any;
 }
 
+declare module "cart/Cart" {
+  export function mount(el: any): any;
+}

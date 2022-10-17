@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
-const List = React.lazy(() => import('list/List'));
+import React from "react";
+import "./App.css";
+const List = React.lazy(() => import("./modules/List"));
 
-const App = () => {
+function App() {
   return (
     <div className="App">
-      <div>This is host container</div>
-      <List/>
+      <List />
     </div>
   );
 }
