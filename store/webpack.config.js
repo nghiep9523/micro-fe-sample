@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
 
@@ -26,11 +25,11 @@ module.exports = {
       filename: "remoteEntry.js",
       library: { type: "global", name: "store" },
       exposes: {
-        "./Counter": "./src/counter",
+        "./store": "./src/store.js",
       },
       shared: {
-        effector: { singleton: true },
-        "effector-react": { singleton: true },
+        redux: { singleton: true },
+        "redux-devtools-extension": { singleton: true },
       },
     }),
   ],

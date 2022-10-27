@@ -8,6 +8,8 @@ import pillow6 from "./assets/6.jpg";
 import pillow7 from "./assets/7.jpg";
 import pillow8 from "./assets/8.jpg";
 
+import store from "store/store";
+
 const goods = [
   {
     id: 1,

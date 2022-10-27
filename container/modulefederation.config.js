@@ -4,7 +4,7 @@ module.exports = {
   name: "host",
   remotes: {
     list: "list@http://localhost:3001/remoteEntry.js",
-    footer: "footer@http://localhost:3002/remoteEntry.js",
+    cart: "cart@http://localhost:3002/remoteEntry.js",
   },
   shared: {
     ...dependencies,

@@ -58,6 +58,13 @@ module.exports = {
       exposes: {
         "./Cart": "./src/loadApp.js",
       },
+      remotes: {
+        store: `store@http://localhost:3003/remoteEntry.js`,
+      },
+      shared: {
+        redux: { singleton: true },
+        "redux-devtools-extension": { singleton: true },
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
