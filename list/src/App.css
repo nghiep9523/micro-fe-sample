@@ -38,7 +38,6 @@ h2 {
 }
 
 .btn-add-to-cart {
-  background-color: var(--backgroundColor);
   font-size: 1.5em;
   color: #f9f9f9;
   height: 2.5em;
@@ -47,7 +46,6 @@ h2 {
   outline: none;
   cursor: pointer;
   display: flex;
-  justify-content: var(--justifyContent);
   align-items: center;
   padding: 5px 15px;
 }
