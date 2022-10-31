@@ -26,6 +26,7 @@ module.exports = {
       library: { type: "global", name: "store" },
       exposes: {
         "./store": "./src/store.js",
+        "./actions": "./src/actions.js",
       },
       shared: {
         redux: { singleton: true },

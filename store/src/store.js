@@ -9,9 +9,8 @@ const reducer = (state = initalState, action) => {
   switch (action.type) {
     case "CART/ADD_TO_CART": {
       const newItems = [...state.items];
-      const addedItemIndex = newItems.findIndex(
-        (item) => item.id === payload.item.id
-      );
+      const item = action.payload.item;
+      const addedItemIndex = newItems.findIndex((data) => data.id === item.id);
       if (addedItemIndex > -1) {
         newItems[addedItemIndex].amount = newItems[addedItemIndex].amount + 1;
       } else {
@@ -23,8 +22,9 @@ const reducer = (state = initalState, action) => {
       };
     }
     case "CART/REMOVE_FROM_CART": {
-      const newItems = [...state.items];
-      newItems = newItems.filter((item) => item.id !== payload.item.id);
+      let newItems = [...state.items];
+      newItems = newItems.filter((item) => item.id !== action.payload.itemId);
+
       return {
         ...state,
         items: newItems,
@@ -35,22 +35,7 @@ const reducer = (state = initalState, action) => {
   }
 };
 
-const addToCart = (item) => ({
-  action: "CART/ADD_TO_CART",
-  payload: item,
-});
-
-const removeFromCart = (id) => ({
-  action: "CART/REMOVE_FROM_CART",
-  payload: id,
-});
-
 const composedEnhancer = composeWithDevTools();
-
-const cartActions = {
-  addToCart,
-  removeFromCart,
-};
 
 const store = createStore(reducer, composedEnhancer);
 
