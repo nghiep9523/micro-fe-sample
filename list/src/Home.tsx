@@ -77,9 +77,12 @@ const ButtonContent = ({
   itemsInCart,
   onRemove,
 }: IButtonContent) => {
+  const numOfItemInCart =
+    itemsInCart?.filter((item: any) => item.id === itemId)?.length || 0;
+
   return isInCart ? (
     <>
-      In Cart ({itemsInCart.length}) <span>|</span>
+      In Cart ({numOfItemInCart}) <span>|</span>
       <div className="remove-from-cart" onClick={() => onRemove(itemId)}>
         Remove from Cart
       </div>
@@ -119,8 +122,8 @@ const Home = () => {
                 className="btn-add-to-cart"
                 style={
                   {
-                    "--backgroundColor": isInCart ? "#11468f" : "#92b4ec",
-                    "--justifyContent": isInCart ? "space-between" : "center",
+                    backgroundColor: isInCart ? "#11468f" : "#92b4ec",
+                    justifyContent: isInCart ? "space-between" : "center",
                   } as any
                 }
                 onClick={() => {
