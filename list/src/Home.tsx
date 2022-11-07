@@ -104,7 +104,7 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
+    <div className="list-container">
       <h2>Pick your lovely pepe</h2>
       <div className="list-wrapper">
         {goods.map((good) => {

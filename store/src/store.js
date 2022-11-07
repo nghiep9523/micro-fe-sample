@@ -35,7 +35,23 @@ const reducer = (state = initalState, action) => {
   }
 };
 
-const composedEnhancer = composeWithDevTools();
+const svelteStoreEnhancer = (createStoreApi) => {
+  return (reducer, initialState) => {
+    const reduxStore = createStoreApi(reducer, initialState);
+    return {
+      ...reduxStore,
+      subscribe(fn) {
+        fn(reduxStore.getState());
+
+        return reduxStore.subscribe(() => {
+          fn(reduxStore.getState());
+        });
+      },
+    };
+  };
+};
+
+const composedEnhancer = composeWithDevTools(svelteStoreEnhancer);
 
 const store = createStore(reducer, composedEnhancer);
 

@@ -1,6 +1,6 @@
 <script>
   import { loadStore } from "./loadStore";
-  import CartItem from "./CartItem.svelte";
+  import Cart from "./Cart.svelte";
   import StoreProvider from "./StoreProvider.svelte";
   let storePromise = loadStore();
 </script>
@@ -9,26 +9,11 @@
   {#await storePromise}
     <div />
   {:then store}
-    <StoreProvider {store}>
-      <CartItem />
+    <StoreProvider store={store.store} actions={store.actions}>
+      <h2>Your Cart</h2>
+      <Cart />
     </StoreProvider>
   {:catch error}
     <p style="color: red">{error.message}</p>
   {/await}
 </div>
-
-<style>
-  .footer {
-    background-color: #aaa;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .svelte-logo {
-    height: 70px;
-  }
-</style>
